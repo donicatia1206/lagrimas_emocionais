@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto 5º Elemento - Lágrimas Cinemáticas</title>
+  <title>Projeto 5º Elemento - Olhar Realista e Biométrico</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #050505;
-      color: #e2e8f0;
-      font-family: 'Segoe UI', Georgia, serif;
+      background-color: #050811;
+      color: #00f2fe;
+      font-family: 'Segoe UI', Roboto, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -20,136 +20,251 @@
     }
 
     .container {
-      max-width: 650px;
+      max-width: 760px;
       width: 100%;
-      background: #0d0d0d;
-      border: 1px solid #262626;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      background: rgba(13, 20, 36, 0.95);
+      border: 2px solid #00f2fe;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      font-size: 1.4rem;
-      letter-spacing: 3px;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #f8fafc;
+      color: #00f2fe;
       margin-bottom: 4px;
-      font-weight: 300;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
     }
 
     p.sub {
-      font-size: 0.8rem;
-      color: #737373;
-      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 35px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    /* QUADRO FOTOGRÁFICO DO OLHO */
-    .photo-frame {
+    /* PALCO DO ROSTO REALISTA */
+    .face-stage {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
       position: relative;
-      width: 100%;
-      height: 320px;
-      border-radius: 12px;
+    }
+
+    .eye-unit {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Sobrancelhas Anatômicas */
+    .eyebrow {
+      width: 120px;
+      height: 8px;
+      background: linear-gradient(90deg, #00f2fe, #1e293b);
+      border-radius: 50% 50% 0 0;
+      margin-bottom: 12px;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+    }
+
+    .eyebrow.left { transform-origin: right center; }
+    .eyebrow.right { transform-origin: left center; }
+
+    /* Estrutura do Olho Amendoado e Realista */
+    .eye-socket {
+      position: relative;
+      width: 150px;
+      height: 85px;
+      background: #ffffff;
+      border-radius: 100% 0%; /* Formato clássico do olho humano */
+      border: 2px solid #00f2fe;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.4);
       overflow: hidden;
-      border: 1px solid #404040;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
-      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s ease;
     }
 
-    .eye-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(110%);
-      transition: filter 0.8s ease;
-    }
+    .eye-socket.left { transform: rotate(20deg); }
+    .eye-socket.right { transform: rotate(-20deg) scaleX(-1); } /* Simetria perfeita */
 
-    /* GOTA DE LÁGRIMA REALISTA (GLASSMORPHISM) */
-    .tear-drop {
+    /* Pálpebras Dinâmicas (Piscar e Expressão) */
+    .eyelid-top {
       position: absolute;
-      top: 55%; /* Origem próximo ao canto/pálpebra */
-      left: 38%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10%;
+      background: #0d1424;
+      z-index: 5;
+      border-bottom: 2px solid #00f2fe;
+      transition: height 0.5s ease;
+    }
+
+    .eyelid-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5%;
+      background: #0d1424;
+      z-index: 5;
+      border-top: 1px solid rgba(0, 242, 254, 0.5);
+      transition: height 0.5s ease;
+    }
+
+    /* Animação Automática de Piscar */
+    @keyframes blink {
+      0%, 96%, 100% { height: 10%; }
+      98% { height: 100%; }
+    }
+
+    .eyelid-top.blinking {
+      animation: blink 4s infinite;
+    }
+
+    /* Íris de Alta Definição com Fibras */
+    .iris {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00f2fe 0%, #0284c7 40%, #1e3a8a 75%, #050811 100%);
+      box-shadow: inset 0 0 10px #000000, 0 0 15px rgba(0, 242, 254, 0.6);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.8s ease, transform 0.5s ease;
+    }
+
+    /* Pupila com Dilatação Dinâmica */
+    .pupil {
+      width: 24px;
+      height: 24px;
+      background-color: #020617;
+      border-radius: 50%;
+      position: relative;
+      transition: transform 0.6s ease;
+    }
+
+    /* Reflexo de Luz Secundário (Umidade Ocular) */
+    .iris::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      width: 12px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 50%;
+      transform: rotate(-30deg);
+      filter: blur(0.5px);
+    }
+
+    /* LÁGRIMAS REALISTAS (GLASSMORPHISM 3D) */
+    .tear-origin {
+      position: absolute;
+      bottom: 0px;
+      width: 1px;
+      height: 1px;
+      z-index: 10;
+    }
+
+    .tear-origin.left { left: 20px; }
+    .tear-origin.right { right: 20px; }
+
+    .tear {
+      position: absolute;
       width: 14px;
       height: 22px;
       border-radius: 50% 50% 35% 35%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 60%, rgba(255,255,255,0.7) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(37,99,235,0.6) 50%, rgba(255,255,255,0.8) 100%);
       box-shadow: inset -1px -1px 2px rgba(255,255,255,0.8),
-                  inset 1px 1px 3px rgba(0,0,0,0.4),
-                  0 4px 8px rgba(0,0,0,0.3);
+                  0 0 12px #2563eb;
       backdrop-filter: blur(1px);
-      opacity: 0;
+      top: 0;
+      left: 0;
       pointer-events: none;
+      animation: dropInfinite 3.2s linear infinite;
+      transition: background 0.8s ease, box-shadow 0.8s ease;
     }
 
-    @keyframes dropReal {
+    @keyframes dropInfinite {
       0% {
         opacity: 0;
         transform: translateY(0) scale(0.5);
       }
       15% {
         opacity: 1;
-        transform: translateY(8px) scale(1);
+        transform: translateY(10px) scale(1);
       }
-      75% {
+      80% {
         opacity: 0.85;
       }
       100% {
         opacity: 0;
-        transform: translateY(110px) scale(0.7);
+        transform: translateY(150px) scale(0.7);
       }
     }
 
-    .tear-drop.animating {
-      animation: dropReal linear forwards;
-    }
-
-    /* BOTÕES MINIMALISTAS */
+    /* CONTROLES */
     .controls {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
       justify-content: center;
-      margin-bottom: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
     }
 
     button {
       flex: 1;
-      background: #171717;
-      color: #a3a3a3;
-      border: 1px solid #404040;
+      min-width: 120px;
+      background: #0d1424;
+      color: #00f2fe;
+      border: 1px solid #00f2fe;
       padding: 12px 10px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 1px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     button:hover {
-      background: #262626;
-      color: #ffffff;
-      border-color: #737373;
+      background: #00f2fe;
+      color: #050811;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      transform: translateY(-2px);
     }
 
-    /* PAINEL POÉTICO/BIOLÓGICO */
-    .quote-panel {
+    /* PAINEL INFORMATIVO */
+    .status-panel {
       width: 100%;
-      padding: 15px;
-      background: #121212;
-      border-left: 2px solid #525252;
-      border-radius: 0 6px 6px 0;
-      font-style: italic;
+      background: rgba(5, 8, 17, 0.9);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 10px;
+      padding: 14px;
       font-size: 0.9rem;
-      color: #d4d4d4;
-      min-height: 60px;
+      text-align: center;
+      color: #e2e8f0;
+      min-height: 50px;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
@@ -157,80 +272,142 @@
 
   <div class="container">
     <h1>PROJETO 5º ELEMENTO</h1>
-    <p class="sub">Sintetizador Emocional de Lágrimas</p>
+    <p class="sub">Sintetizador Biométrico de Lágrimas</p>
 
-    <!-- Quadro da Fotografia -->
-    <div class="photo-frame">
-      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" id="eyePhoto" class="eye-photo" alt="Olho Humano">
-      <div class="tear-drop" id="tearDrop"></div>
+    <!-- ROSTO REALISTA COM PÁLPEBRAS E ÍRIS 3D -->
+    <div class="face-stage">
+      <!-- Olho Esquerdo -->
+      <div class="eye-unit">
+        <div class="eyebrow left" id="browLeft"></div>
+        <div class="eye-socket left">
+          <div class="eyelid-top blinking" id="topLidLeft"></div>
+          <div class="iris" id="irisLeft">
+            <div class="pupil" id="pupilLeft"></div>
+          </div>
+          <div class="eyelid-bottom" id="bottomLidLeft"></div>
+        </div>
+        <div class="tear-origin left">
+          <div class="tear" id="tearLeft"></div>
+        </div>
+      </div>
+
+      <!-- Olho Direito -->
+      <div class="eye-unit">
+        <div class="eyebrow right" id="browRight"></div>
+        <div class="eye-socket right">
+          <div class="eyelid-top blinking" id="topLidRight"></div>
+          <div class="iris" id="irisRight">
+            <div class="pupil" id="pupilRight"></div>
+          </div>
+          <div class="eyelid-bottom" id="bottomLidRight"></div>
+        </div>
+        <div class="tear-origin right">
+          <div class="tear" id="tearRight"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Controles -->
+    <!-- CONTROLES -->
     <div class="controls">
-      <button onclick="triggerEmotion('tristeza')">Tristeza</button>
-      <button onclick="triggerEmotion('alegria')">Alegria</button>
-      <button onclick="triggerEmotion('raiva')">Raiva</button>
-      <button onclick="triggerEmotion('paz')">Paz</button>
+      <button onclick="setEmotion('tristeza')">Tristeza</button>
+      <button onclick="setEmotion('alegria')">Alegria</button>
+      <button onclick="setEmotion('raiva')">Raiva</button>
+      <button onclick="setEmotion('paz')">Paz</button>
     </div>
 
-    <!-- Texto de Impacto -->
-    <div class="quote-panel" id="quotePanel">
-      "As lágrimas são a linguagem silenciosa do corpo quando a voz não alcança..."
+    <!-- PAINEL DE STATUS -->
+    <div class="status-panel" id="statusPanel">
+      LÁGRIMA DE TRISTEZA: Processo de alívio ativo (Cortisol descompressivo).
     </div>
   </div>
 
   <script>
-    const eyePhoto = document.getElementById('eyePhoto');
-    const tearDrop = document.getElementById('tearDrop');
-    const quotePanel = document.getElementById('quotePanel');
+    const tearLeft = document.getElementById('tearLeft');
+    const tearRight = document.getElementById('tearRight');
+    const irisLeft = document.getElementById('irisLeft');
+    const irisRight = document.getElementById('irisRight');
+    const browLeft = document.getElementById('browLeft');
+    const browRight = document.getElementById('browRight');
+    const topLidLeft = document.getElementById('topLidLeft');
+    const topLidRight = document.getElementById('topLidRight');
+    const pupilLeft = document.getElementById('pupilLeft');
+    const pupilRight = document.getElementById('pupilRight');
+    const statusPanel = document.getElementById('statusPanel');
 
     const emotions = {
       tristeza: {
-        filter: 'grayscale(100%) contrast(120%) brightness(85%)',
-        duration: 4.0,
-        glow: 'inset -1px -1px 2px rgba(255,255,255,0.8), 0 0 10px rgba(59, 130, 246, 0.5)',
-        quote: '"Lágrimas de tristeza são o alívio da alma. Ricas em cortisol, elas descarregam o peso do sistema."'
+        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(37,99,235,0.7) 50%, rgba(255,255,255,0.8) 100%)',
+        shadow: '0 0 14px #3b82f6',
+        irisBg: 'radial-gradient(circle, #00f2fe 0%, #0284c7 40%, #1e3a8a 75%, #050811 100%)',
+        speed: '3.5s',
+        browL: 'rotate(-15deg) translateY(-4px)',
+        browR: 'rotate(15deg) translateY(-4px)',
+        topLid: '30%',
+        pupilScale: 'scale(1.2)',
+        msg: 'LÁGRIMA DE TRISTEZA: Processo de alívio ativo (Cortisol descompressivo).'
       },
       alegria: {
-        filter: 'grayscale(30%) sepia(20%) contrast(105%) brightness(110%)',
-        duration: 2.2,
-        glow: 'inset -1px -1px 2px rgba(255,255,255,0.9), 0 0 12px rgba(250, 204, 21, 0.6)',
-        quote: '"Lágrimas de alegria transbordam gratidão. Carregadas de endorfina, elas celebram a vida."'
+        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,204,21,0.7) 50%, rgba(255,255,255,0.8) 100%)',
+        shadow: '0 0 16px #fde047',
+        irisBg: 'radial-gradient(circle, #fde047 0%, #ca8a04 40%, #854d0e 75%, #050811 100%)',
+        speed: '2.0s',
+        browL: 'rotate(5deg) translateY(-8px)',
+        browR: 'rotate(-5deg) translateY(-8px)',
+        topLid: '10%',
+        pupilScale: 'scale(0.9)',
+        msg: 'LÁGRIMA DE ALEGRIA: Transbordamento de gratidão (Endorfina e Dopamina).'
       },
       raiva: {
-        filter: 'grayscale(80%) sepia(40%) hue-rotate(-50deg) contrast(140%)',
-        duration: 1.3,
-        glow: 'inset -1px -1px 2px rgba(255,255,255,0.8), 0 0 10px rgba(239, 68, 68, 0.6)',
-        quote: '"Lágrimas de raiva nascem da alta pressão interna. Uma tentativa do corpo de restaurar o controle."'
+        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(239,68,68,0.7) 50%, rgba(255,255,255,0.8) 100%)',
+        shadow: '0 0 16px #f87171',
+        irisBg: 'radial-gradient(circle, #f87171 0%, #dc2626 40%, #7f1d1d 75%, #050811 100%)',
+        speed: '1.2s',
+        browL: 'rotate(20deg) translateY(6px)',
+        browR: 'rotate(-20deg) translateY(6px)',
+        topLid: '40%',
+        pupilScale: 'scale(0.7)',
+        msg: 'LÁGRIMA DE RAIVA: Alta pressão e descarga adrenérgica.'
       },
       paz: {
-        filter: 'grayscale(60%) contrast(95%) brightness(105%)',
-        duration: 3.0,
-        glow: 'inset -1px -1px 2px rgba(255,255,255,0.9), 0 0 10px rgba(103, 232, 249, 0.5)',
-        quote: '"Lágrimas de paz são o sereno após a tempestade. Simbolizam o equilíbrio e a quietude da mente."'
+        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(103,232,249,0.7) 50%, rgba(255,255,255,0.8) 100%)',
+        shadow: '0 0 16px #a5f3fc',
+        irisBg: 'radial-gradient(circle, #a5f3fc 0%, #0891b2 40%, #164e63 75%, #050811 100%)',
+        speed: '2.8s',
+        browL: 'rotate(0deg) translateY(-2px)',
+        browR: 'rotate(0deg) translateY(-2px)',
+        topLid: '15%',
+        pupilScale: 'scale(1.0)',
+        msg: 'LÁGRIMA DE PAZ: Estado de serenidade e homeostase do sistema.'
       }
     };
 
-    function triggerEmotion(type) {
+    function setEmotion(type) {
       const config = emotions[type];
       if (!config) return;
 
-      // Reseta a animação da lágrima
-      tearDrop.classList.remove('animating');
-      void tearDrop.offsetWidth;
+      // Atualiza lágrimas
+      [tearLeft, tearRight].forEach(tear => {
+        tear.style.background = config.tearBg;
+        tear.style.boxShadow = config.shadow;
+        tear.style.animationDuration = config.speed;
+      });
 
-      // Aplica o filtro dramático na fotografia
-      eyePhoto.style.filter = config.filter;
+      // Atualiza íris e pupilas
+      irisLeft.style.background = config.irisBg;
+      irisRight.style.background = config.irisBg;
+      pupilLeft.style.transform = config.pupilScale;
+      pupilRight.style.transform = config.pupilScale;
 
-      // Aplica o brilho e duração da gota
-      tearDrop.style.boxShadow = config.glow;
-      tearDrop.style.animationDuration = `${config.duration}s`;
+      // Movimenta sobrancelhas
+      browLeft.style.transform = config.browL;
+      browRight.style.transform = config.browR;
 
-      // Atualiza o texto
-      quotePanel.textContent = config.quote;
+      // Ajusta pálpebras
+      topLidLeft.style.height = config.topLid;
+      topLidRight.style.height = config.topLid;
 
-      // Inicia o escorrimento
-      tearDrop.classList.add('animating');
+      // Atualiza o painel
+      statusPanel.textContent = config.msg;
     }
   </script>
 </body>
