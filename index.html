@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lágrimas e Emoções</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 1.8rem;
+      color: #e2e8f0;
+      text-align: center;
+    }
+
+    p.subtitulo {
+      margin-bottom: 30px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* Container do Olho */
+    .eye-container {
+      position: relative;
+      width: 260px;
+      height: 140px;
+      margin-bottom: 50px;
+    }
+
+    /* Contorno do Olho */
+    .eye {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #f8fafc;
+      border-radius: 100% 0%;
+      transform: rotate(45deg);
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15), inset 0 0 15px rgba(0,0,0,0.2);
+      border: 3px solid #334155;
+    }
+
+    /* Íris */
+    .iris {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #2563eb 0%, #1e3a8a 70%, #0f172a 100%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: background 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Pupila */
+    .pupil {
+      width: 34px;
+      height: 34px;
+      background-color: #020617;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    /* Brilho da pupila */
+    .pupil::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 6px;
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      border-radius: 50%;
+    }
+
+    /* Ponto de origem da lágrima (Canto interno do olho ajustado na rotação) */
+    .tear-origin {
+      position: absolute;
+      bottom: 12px;
+      left: 20px;
+      width: 10px;
+      height: 10px;
+      z-index: 10;
+    }
+
+    /* Elemento da Lágrima */
+    .tear {
+      position: absolute;
+      width: 14px;
+      height: 20px;
+      border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+      transform: rotate(180deg);
+      opacity: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    /* Animação do Escorrimento */
+    @keyframes dropTear {
+      0% {
+        opacity: 0;
+        transform: rotate(180deg) translateY(0) scale(0.6);
+      }
+      15% {
+        opacity: 1;
+        transform: rotate(180deg) translateY(10px) scale(1);
+      }
+      80% {
+        opacity: 0.9;
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(180deg) translateY(220px) scale(0.8);
+      }
+    }
+
+    .tear.animating {
+      animation-name: dropTear;
+      animation-fill-mode: forwards;
+    }
+
+    /* Botões de Controle */
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #1e293b;
+      color: #f8fafc;
+      border: 2px solid #334155;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Estilos específicos dos botões */
+    button.sadness { border-color: #3b82f6; }
+    button.sadness:hover { background-color: #1d4ed8; }
+
+    button.joy { border-color: #eab308; }
+    button.joy:hover { background-color: #ca8a04; }
+
+    button.anger { border-color: #ef4444; }
+    button.anger:hover { background-color: #dc2626; }
+
+    button.peace { border-color: #06b6d4; }
+    button.peace:hover { background-color: #0891b2; }
+
+    /* Painel Informativo da Emoção */
+    .status-panel {
+      margin-top: 25px;
+      height: 40px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sintetizador de Lágrimas Emocionais</h1>
+  <p class="subtitulo">Selecione uma emoção para expressar através do olhar</p>
+
+  <div class="eye-container">
+    <div class="eye">
+      <div class="iris" id="iris">
+        <div class="pupil"></div>
+      </div>
+    </div>
+    <div class="tear-origin">
+      <div class="tear" id="tear"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="sadness" onclick="triggerEmotion('tristeza')">?? Tristeza</button>
+    <button class="joy" onclick="triggerEmotion('alegria')">? Alegria</button>
+    <button class="anger" onclick="triggerEmotion('raiva')">?? Raiva</button>
+    <button class="peace" onclick="triggerEmotion('paz')">??? Paz</button>
+  </div>
+
+  <div class="status-panel" id="statusPanel">
+    Aguardando estímulo emocional...
+  </div>
+
+  <script>
+    const tear = document.getElementById('tear');
+    const iris = document.getElementById('iris');
+    const statusPanel = document.getElementById('statusPanel');
+
+    // Configuração das Emoções (Cores, velocidade e mensagens)
+    const emotions = {
+      tristeza: {
+        color: '#2563eb',
+        shadow: '0 0 10px #3b82f6',
+        irisBg: 'radial-gradient(circle, #1d4ed8 0%, #1e3a8a 70%, #0f172a 100%)',
+        duration: 3.5, // Cai devagar
+        msg: 'Lágrima de Tristeza: Rica em cortisol. Liberando o estresse do sistema...'
+      },
+      alegria: {
+        color: '#facc15',
+        shadow: '0 0 12px #fde047',
+        irisBg: 'radial-gradient(circle, #ca8a04 0%, #854d0e 70%, #0f172a 100%)',
+        duration: 2.0, // Flui rápido
+        msg: 'Lágrima de Alegria: Carregada de endorfina e gratidão!'
+      },
+      raiva: {
+        color: '#ef4444',
+        shadow: '0 0 12px #f87171',
+        irisBg: 'radial-gradient(circle, #b91c1c 0%, #7f1d1d 70%, #0f172a 100%)',
+        duration: 1.2, // Cai pesada e rápida
+        msg: 'Lágrima de Raiva: Alta pressão interna e descarga de adrenalina.'
+      },
+      paz: {
+        color: '#67e8f9',
+        shadow: '0 0 15px #a5f3fc',
+        irisBg: 'radial-gradient(circle, #0891b2 0%, #164e63 70%, #0f172a 100%)',
+        duration: 2.8, // Suave
+        msg: 'Lágrima de Paz: Alívio profundo, equilíbrio e serenidade.'
+      }
+    };
+
+    function triggerEmotion(type) {
+      const config = emotions[type];
+      if (!config) return;
+
+      // Reseta a animação se já estiver rodando
+      tear.classList.remove('animating');
+      void tear.offsetWidth; // Força reflow no navegador
+
+      // Aplica estilos da lágrima conforme a emoção
+      tear.style.backgroundColor = config.color;
+      tear.style.boxShadow = config.shadow;
+      tear.style.animationDuration = `${config.duration}s`;
+
+      // Altera a cor da íris
+      iris.style.background = config.irisBg;
+
+      // Atualiza a mensagem no painel
+      statusPanel.textContent = config.msg;
+
+      // Inicia a animação da lágrima
+      tear.classList.add('animating');
+    }
+  </script>
+</body>
+</html>
