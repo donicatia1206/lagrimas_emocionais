@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto 5º Elemento - Olhar Realista e Biométrico</title>
+  <title>Projeto 5º Elemento - Sintetizador Biométrico de Lágrimas</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #050811;
+      background-color: #080d1a;
       color: #00f2fe;
       font-family: 'Segoe UI', Roboto, sans-serif;
       display: flex;
@@ -20,20 +20,20 @@
     }
 
     .container {
-      max-width: 760px;
+      max-width: 680px;
       width: 100%;
-      background: rgba(13, 20, 36, 0.95);
+      background: rgba(15, 23, 42, 0.95);
       border: 2px solid #00f2fe;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #00f2fe;
@@ -42,201 +42,56 @@
     }
 
     p.sub {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #94a3b8;
-      margin-bottom: 35px;
+      margin-bottom: 20px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    /* PALCO DO ROSTO REALISTA */
-    .face-stage {
-      display: flex;
-      gap: 50px;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .eye-unit {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Sobrancelhas Anatômicas */
-    .eyebrow {
-      width: 120px;
-      height: 8px;
-      background: linear-gradient(90deg, #00f2fe, #1e293b);
-      border-radius: 50% 50% 0 0;
-      margin-bottom: 12px;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-    }
-
-    .eyebrow.left { transform-origin: right center; }
-    .eyebrow.right { transform-origin: left center; }
-
-    /* Estrutura do Olho Amendoado e Realista */
-    .eye-socket {
-      position: relative;
-      width: 150px;
-      height: 85px;
-      background: #ffffff;
-      border-radius: 100% 0%; /* Formato clássico do olho humano */
-      border: 2px solid #00f2fe;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.4);
+    .image-frame {
+      width: 100%;
+      height: 340px;
+      border-radius: 12px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.6s ease;
-    }
-
-    .eye-socket.left { transform: rotate(20deg); }
-    .eye-socket.right { transform: rotate(-20deg) scaleX(-1); } /* Simetria perfeita */
-
-    /* Pálpebras Dinâmicas (Piscar e Expressão) */
-    .eyelid-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10%;
-      background: #0d1424;
-      z-index: 5;
-      border-bottom: 2px solid #00f2fe;
-      transition: height 0.5s ease;
-    }
-
-    .eyelid-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5%;
-      background: #0d1424;
-      z-index: 5;
-      border-top: 1px solid rgba(0, 242, 254, 0.5);
-      transition: height 0.5s ease;
-    }
-
-    /* Animação Automática de Piscar */
-    @keyframes blink {
-      0%, 96%, 100% { height: 10%; }
-      98% { height: 100%; }
-    }
-
-    .eyelid-top.blinking {
-      animation: blink 4s infinite;
-    }
-
-    /* Íris de Alta Definição com Fibras */
-    .iris {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #00f2fe 0%, #0284c7 40%, #1e3a8a 75%, #050811 100%);
-      box-shadow: inset 0 0 10px #000000, 0 0 15px rgba(0, 242, 254, 0.6);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.8s ease, transform 0.5s ease;
-    }
-
-    /* Pupila com Dilatação Dinâmica */
-    .pupil {
-      width: 24px;
-      height: 24px;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      margin-bottom: 20px;
       background-color: #020617;
-      border-radius: 50%;
-      position: relative;
-      transition: transform 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
     }
 
-    /* Reflexo de Luz Secundário (Umidade Ocular) */
-    .iris::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      left: 10px;
-      width: 12px;
-      height: 16px;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 50%;
-      transform: rotate(-30deg);
-      filter: blur(0.5px);
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease-in-out;
     }
 
-    /* LÁGRIMAS REALISTAS (GLASSMORPHISM 3D) */
-    .tear-origin {
-      position: absolute;
-      bottom: 0px;
-      width: 1px;
-      height: 1px;
-      z-index: 10;
-    }
-
-    .tear-origin.left { left: 20px; }
-    .tear-origin.right { right: 20px; }
-
-    .tear {
-      position: absolute;
-      width: 14px;
-      height: 22px;
-      border-radius: 50% 50% 35% 35%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(37,99,235,0.6) 50%, rgba(255,255,255,0.8) 100%);
-      box-shadow: inset -1px -1px 2px rgba(255,255,255,0.8),
-                  0 0 12px #2563eb;
-      backdrop-filter: blur(1px);
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      animation: dropInfinite 3.2s linear infinite;
-      transition: background 0.8s ease, box-shadow 0.8s ease;
-    }
-
-    @keyframes dropInfinite {
-      0% {
-        opacity: 0;
-        transform: translateY(0) scale(0.5);
-      }
-      15% {
-        opacity: 1;
-        transform: translateY(10px) scale(1);
-      }
-      80% {
-        opacity: 0.85;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(150px) scale(0.7);
-      }
-    }
-
-    /* CONTROLES */
     .controls {
       display: flex;
-      gap: 12px;
+      flex-direction: column;
+      gap: 10px;
       width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      width: 100%;
     }
 
     button {
       flex: 1;
-      min-width: 120px;
-      background: #0d1424;
+      background: #0f172a;
       color: #00f2fe;
       border: 1px solid #00f2fe;
-      padding: 12px 10px;
-      border-radius: 10px;
-      font-size: 0.85rem;
+      padding: 10px 6px;
+      border-radius: 8px;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -246,25 +101,25 @@
 
     button:hover {
       background: #00f2fe;
-      color: #050811;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      color: #080d1a;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
       transform: translateY(-2px);
     }
 
-    /* PAINEL INFORMATIVO */
     .status-panel {
       width: 100%;
-      background: rgba(5, 8, 17, 0.9);
+      background: rgba(8, 13, 26, 0.8);
       border: 1px solid rgba(0, 242, 254, 0.3);
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 0.9rem;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
       text-align: center;
       color: #e2e8f0;
-      min-height: 50px;
+      min-height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-style: italic;
     }
   </style>
 </head>
@@ -274,110 +129,56 @@
     <h1>PROJETO 5º ELEMENTO</h1>
     <p class="sub">Sintetizador Biométrico de Lágrimas</p>
 
-    <!-- ROSTO REALISTA COM PÁLPEBRAS E ÍRIS 3D -->
-    <div class="face-stage">
-      <!-- Olho Esquerdo -->
-      <div class="eye-unit">
-        <div class="eyebrow left" id="browLeft"></div>
-        <div class="eye-socket left">
-          <div class="eyelid-top blinking" id="topLidLeft"></div>
-          <div class="iris" id="irisLeft">
-            <div class="pupil" id="pupilLeft"></div>
-          </div>
-          <div class="eyelid-bottom" id="bottomLidLeft"></div>
-        </div>
-        <div class="tear-origin left">
-          <div class="tear" id="tearLeft"></div>
-        </div>
-      </div>
-
-      <!-- Olho Direito -->
-      <div class="eye-unit">
-        <div class="eyebrow right" id="browRight"></div>
-        <div class="eye-socket right">
-          <div class="eyelid-top blinking" id="topLidRight"></div>
-          <div class="iris" id="irisRight">
-            <div class="pupil" id="pupilRight"></div>
-          </div>
-          <div class="eyelid-bottom" id="bottomLidRight"></div>
-        </div>
-        <div class="tear-origin right">
-          <div class="tear" id="tearRight"></div>
-        </div>
-      </div>
+    <div class="image-frame">
+      <img id="emotionImage" src="gratidao.jpg" alt="Expressão de Gratidão">
     </div>
 
-    <!-- CONTROLES -->
     <div class="controls">
-      <button onclick="setEmotion('tristeza')">Tristeza</button>
-      <button onclick="setEmotion('alegria')">Alegria</button>
-      <button onclick="setEmotion('raiva')">Raiva</button>
-      <button onclick="setEmotion('paz')">Paz</button>
+      <div class="button-row">
+        <button onclick="setEmotion('gratidao')">Gratidão</button>
+        <button onclick="setEmotion('dor')">Dor da Alma</button>
+        <button onclick="setEmotion('tristeza')">Tristeza</button>
+      </div>
+      <div class="button-row">
+        <button onclick="setEmotion('alegria')">Alegria</button>
+        <button onclick="setEmotion('paz')">Paz</button>
+        <button onclick="setEmotion('raiva')">Raiva</button>
+      </div>
     </div>
 
-    <!-- PAINEL DE STATUS -->
     <div class="status-panel" id="statusPanel">
-      LÁGRIMA DE TRISTEZA: Processo de alívio ativo (Cortisol descompressivo).
+      GRATIDÃO: O olhar foca a beleza do encontro. Alta carga de oxitocina, dopamina e reconhecimento da vida.
     </div>
   </div>
 
   <script>
-    const tearLeft = document.getElementById('tearLeft');
-    const tearRight = document.getElementById('tearRight');
-    const irisLeft = document.getElementById('irisLeft');
-    const irisRight = document.getElementById('irisRight');
-    const browLeft = document.getElementById('browLeft');
-    const browRight = document.getElementById('browRight');
-    const topLidLeft = document.getElementById('topLidLeft');
-    const topLidRight = document.getElementById('topLidRight');
-    const pupilLeft = document.getElementById('pupilLeft');
-    const pupilRight = document.getElementById('pupilRight');
+    const emotionImage = document.getElementById('emotionImage');
     const statusPanel = document.getElementById('statusPanel');
 
     const emotions = {
+      gratidao: {
+        img: 'gratidao.jpg',
+        msg: 'GRATIDÃO: O olhar foca a beleza do encontro. Alta carga de oxitocina, dopamina e reconhecimento da vida.'
+      },
+      dor: {
+        img: 'dor_na_alma.jpg',
+        msg: 'DOR DA ALMA & FÍSICA: O olhar desvia para o horizonte buscando o invisível. Presença de leucina-encefalina (analgésico natural).'
+      },
       tristeza: {
-        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(37,99,235,0.7) 50%, rgba(255,255,255,0.8) 100%)',
-        shadow: '0 0 14px #3b82f6',
-        irisBg: 'radial-gradient(circle, #00f2fe 0%, #0284c7 40%, #1e3a8a 75%, #050811 100%)',
-        speed: '3.5s',
-        browL: 'rotate(-15deg) translateY(-4px)',
-        browR: 'rotate(15deg) translateY(-4px)',
-        topLid: '30%',
-        pupilScale: 'scale(1.2)',
-        msg: 'LÁGRIMA DE TRISTEZA: Processo de alívio ativo (Cortisol descompressivo).'
+        img: 'tristeza.jpg',
+        msg: 'TRISTEZA: Processo de alívio e descompressão do organismo. Gotas densas enriquecidas com cortisol.'
       },
       alegria: {
-        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,204,21,0.7) 50%, rgba(255,255,255,0.8) 100%)',
-        shadow: '0 0 16px #fde047',
-        irisBg: 'radial-gradient(circle, #fde047 0%, #ca8a04 40%, #854d0e 75%, #050811 100%)',
-        speed: '2.0s',
-        browL: 'rotate(5deg) translateY(-8px)',
-        browR: 'rotate(-5deg) translateY(-8px)',
-        topLid: '10%',
-        pupilScale: 'scale(0.9)',
-        msg: 'LÁGRIMA DE ALEGRIA: Transbordamento de gratidão (Endorfina e Dopamina).'
-      },
-      raiva: {
-        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(239,68,68,0.7) 50%, rgba(255,255,255,0.8) 100%)',
-        shadow: '0 0 16px #f87171',
-        irisBg: 'radial-gradient(circle, #f87171 0%, #dc2626 40%, #7f1d1d 75%, #050811 100%)',
-        speed: '1.2s',
-        browL: 'rotate(20deg) translateY(6px)',
-        browR: 'rotate(-20deg) translateY(6px)',
-        topLid: '40%',
-        pupilScale: 'scale(0.7)',
-        msg: 'LÁGRIMA DE RAIVA: Alta pressão e descarga adrenérgica.'
+        img: 'alegria.jpg',
+        msg: 'ALEGRIA: Transbordamento celular e celebração em abundância de endorfina.'
       },
       paz: {
-        tearBg: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(103,232,249,0.7) 50%, rgba(255,255,255,0.8) 100%)',
-        shadow: '0 0 16px #a5f3fc',
-        irisBg: 'radial-gradient(circle, #a5f3fc 0%, #0891b2 40%, #164e63 75%, #050811 100%)',
-        speed: '2.8s',
-        browL: 'rotate(0deg) translateY(-2px)',
-        browR: 'rotate(0deg) translateY(-2px)',
-        topLid: '15%',
-        pupilScale: 'scale(1.0)',
-        msg: 'LÁGRIMA DE PAZ: Estado de serenidade e homeostase do sistema.'
+        img: 'paz.jpg',
+        msg: 'PAZ: Estado de quietude, serenidade e restauração homeostática do sistema.'
+      },
+      raiva: {
+        img: 'raiva.jpg',
+        msg: 'RAIVA: Descarga adrenérgica sob alta pressão interna, com miose (contração) e tensão na expressão.'
       }
     };
 
@@ -385,28 +186,12 @@
       const config = emotions[type];
       if (!config) return;
 
-      // Atualiza lágrimas
-      [tearLeft, tearRight].forEach(tear => {
-        tear.style.background = config.tearBg;
-        tear.style.boxShadow = config.shadow;
-        tear.style.animationDuration = config.speed;
-      });
+      emotionImage.style.opacity = '0.2';
+      setTimeout(() => {
+        emotionImage.src = config.img;
+        emotionImage.style.opacity = '1';
+      }, 150);
 
-      // Atualiza íris e pupilas
-      irisLeft.style.background = config.irisBg;
-      irisRight.style.background = config.irisBg;
-      pupilLeft.style.transform = config.pupilScale;
-      pupilRight.style.transform = config.pupilScale;
-
-      // Movimenta sobrancelhas
-      browLeft.style.transform = config.browL;
-      browRight.style.transform = config.browR;
-
-      // Ajusta pálpebras
-      topLidLeft.style.height = config.topLid;
-      topLidRight.style.height = config.topLid;
-
-      // Atualiza o painel
       statusPanel.textContent = config.msg;
     }
   </script>
