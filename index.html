@@ -11,19 +11,22 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+body {
+    background-color: #050505;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-size: contain; /* Enquadra a imagem inteira na tela sem cortar */
+    background-repeat: no-repeat;
+    background-position: center top;
+    transition: background-image 0.8s ease-in-out;
+}
 
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            background-size: cover;
-            background-position: center;
-            transition: background-image 0.8s ease-in-out;
-        }
+        
+
 
         header {
             width: 100%;
