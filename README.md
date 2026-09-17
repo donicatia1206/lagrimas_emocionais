@@ -7,8 +7,8 @@
 
 <br>
 
-<!-- Capa Principal com Nascer do Sol -->
-<img src="assets/nascer_do_sol.png" alt="Nascer do Sol - Projeto 5º Elemento" width="100%" style="border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.8);">
+<!-- Capa Principal Corrigida com o Espaço no Nome do Arquivo -->
+<img src="assets/nascer_do _sol.png" alt="Nascer do Sol - Projeto 5º Elemento" width="100%" style="border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.8);">
 
 <br>
 
@@ -24,25 +24,25 @@ O **Sintetizador Biométrico e Poético da Alma** é um experimento de código a
 
 ---
 
-## 🖼️ Galeria do Portal de Emoções
+## 🖼️ Galeria de Emoções (Padronizada)
 
 <div align="center">
 
-| 🌅 Dashboard Principal | 🟡 Gratidão |
+| 🟡 Gratidão | 🔵 Tristeza |
 | :---: | :---: |
-| <img src="assets/dashboard.png" width="350"> | <img src="assets/gratidao.png" width="350"> |
+| <img src="assets/gratidao.png" width="350"> | <img src="assets/tristeza.png" width="350"> |
 
-| 🔵 Tristeza | 🔴 Raiva |
+| 🔴 Raiva | 🩵 Paz |
 | :---: | :---: |
-| <img src="assets/tristeza.png" width="350"> | <img src="assets/raiva.png" width="350"> |
+| <img src="assets/raiva.png" width="350"> | <img src="assets/paz.png" width="350"> |
 
-| 🩵 Paz | 🟣 Dor da Alma |
+| 🟣 Dor da Alma | 🔮 Medo |
 | :---: | :---: |
-| <img src="assets/paz.png" width="350"> | <img src="assets/dor_da_alma.png" width="350"> |
+| <img src="assets/dor_da_alma.png" width="350"> | <img src="assets/medo.png" width="350"> |
 
-| 🔮 Medo | 🌅 Nascer do Sol |
+| 🟠 Alegria | 🌅 Nascer do Sol |
 | :---: | :---: |
-| <img src="assets/medo.png" width="350"> | <img src="assets/nascer_do_sol.png" width="350"> |
+| <img src="assets/alegria.png" width="350"> | <img src="assets/nascer_do _sol.png" width="350"> |
 
 </div>
 
