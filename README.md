@@ -7,7 +7,7 @@
 
 <br>
 
-<!-- Capa Principal Corrigida com o Espaço no Nome do Arquivo -->
+<!-- Capa Principal -->
 <img src="assets/nascer_do _sol.png" alt="Nascer do Sol - Projeto 5º Elemento" width="100%" style="border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.8);">
 
 <br>
@@ -24,25 +24,25 @@ O **Sintetizador Biométrico e Poético da Alma** é um experimento de código a
 
 ---
 
-## 🖼️ Galeria de Emoções (Padronizada)
+## 🖼️ Galeria do Portal de Emoções
 
 <div align="center">
 
-| 🟡 Gratidão | 🔵 Tristeza |
+| 🌅 Nascer do Sol | 🟡 Gratidão |
 | :---: | :---: |
-| <img src="assets/gratidao.png" width="350"> | <img src="assets/tristeza.png" width="350"> |
+| <img src="assets/nascer_do _sol.png" width="350"> | <img src="assets/gratidao.png" width="350"> |
 
-| 🔴 Raiva | 🩵 Paz |
+| 🟠 Alegria | 🩵 Paz |
 | :---: | :---: |
-| <img src="assets/raiva.png" width="350"> | <img src="assets/paz.png" width="350"> |
+| <img src="assets/alegria.png" width="350"> | <img src="assets/paz.png" width="350"> |
 
-| 🟣 Dor da Alma | 🔮 Medo |
+| 🔵 Tristeza | 🔮 Medo |
 | :---: | :---: |
-| <img src="assets/dor_da_alma.png" width="350"> | <img src="assets/medo.png" width="350"> |
+| <img src="assets/tristeza.png" width="350"> | <img src="assets/medo.png" width="350"> |
 
-| 🟠 Alegria | 🌅 Nascer do Sol |
+| 🟣 Dor da Alma | 🔴 Lágrimas de Raiva |
 | :---: | :---: |
-| <img src="assets/alegria.png" width="350"> | <img src="assets/nascer_do _sol.png" width="350"> |
+| <img src="assets/dor_da_alma.png" width="350"> | <img src="assets/lagrimas_raiva.png" width="350"> |
 
 </div>
 
@@ -50,10 +50,11 @@ O **Sintetizador Biométrico e Poético da Alma** é um experimento de código a
 
 ## 🧬 Biomecânica e Neurobiologia dos Sentimentos
 
-* **Gratidão:** Ativação de *Oxitocina*, *Serotonina* e *Dopamina*.
-* **Tristeza:** Acolhimento e liberação emocional em lágrima cristalina.
-* **Raiva:** Elevação de *Adrenalina*, *Noradrenalina* e *Cortisol*.
 * **Nascer do Sol:** Renovação celular com carga de *Endorfina* e *Dopamina*.
+* **Gratidão:** Ativação de *Oxitocina*, *Serotonina* e *Dopamina*.
+* **Alegria & Paz:** Equilíbrio biológico, serenidade e energia vital.
+* **Tristeza & Medo:** Acolhimento, proteção e liberação emocional através da lágrima.
+* **Dor da Alma & Lágrimas de Raiva:** Transformação da dor em resistência e força interior (*Adrenalina* e *Cortisol*).
 
 ---
 
