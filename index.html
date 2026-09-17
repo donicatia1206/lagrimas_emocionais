@@ -31,8 +31,8 @@
         }
 
         header h1 {
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
@@ -96,7 +96,7 @@
     </header>
 
     <div class="image-container">
-        <img id="display-image" src="assets/dashboard.png" alt="Dashboard Principal" onerror="handleError(this)">
+        <img id="display-image" src="assets/dashboard.png" alt="Sintetizador Biométrico" onerror="handleError(this)">
     </div>
 
     <nav>
@@ -115,17 +115,22 @@
 
     <script>
         const imageMap = {
-            dashboard: ['assets/dashboard.png', 'assets/dashboard.jpg'],
+            dashboard: ['assets/dashboard.png', 'assets/dashboard.jpg', 'assets/Sintetizador Biométrico de Lágrimas.png'],
             gratidao: ['assets/gratidao.png', 'assets/gratidao.jpg'],
             alegria: ['assets/alegria.png', 'assets/alegria.jpg'],
-            alegria_lagrimas.png: ['assets/alegria_lagrimas.jpg'], 
+            alegria_lagrimas: [
+                'assets/Sintetizador Biométrico de Lágrimas.png',
+                'assets/Sintetizador Biométrico de Lágrimas1.png',
+                'assets/alegria_lagrimas.png',
+                'assets/alegria_lagrimas.jpg'
+            ],
             paz: ['assets/paz.png', 'assets/paz.jpg'],
             tristeza: ['assets/tristeza.png', 'assets/tristeza.jpg'],
             dor_da_alma: ['assets/dor_da_alma.png', 'assets/dor_da_alma.jpg'],
             raiva: ['assets/raiva.png', 'assets/raiva.jpg'],
             lagrimas_raiva: ['assets/lagrimas_raiva.png', 'assets/lagrimas_raiva.jpg'],
             medo: ['assets/medo.png', 'assets/medo.jpg'],
-            nascer_do_sol: ['assets/nascer_do _sol.png', 'assets/nascer_do _sol.jpg', 'assets/nascer_do_sol.png']
+            nascer_do_sol: ['assets/nascer_do _sol.png', 'assets/nascer_do_sol.png', 'assets/nascer_do _sol.jpg']
         };
 
         let currentEmotion = 'dashboard';
