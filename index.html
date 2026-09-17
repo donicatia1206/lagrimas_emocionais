@@ -1,202 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto 5º Elemento - Sintetizador Biométrico de Lágrimas</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintetizador Biométrico e Poético da Alma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background-color: #080d1a;
-      color: #00f2fe;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.8s ease-in-out;
+        }
 
-    .container {
-      max-width: 680px;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      border: 2px solid #00f2fe;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    h1 {
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #00f2fe;
-      margin-bottom: 4px;
-      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
-    }
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
 
-    p.sub {
-      font-size: 0.8rem;
-      color: #94a3b8;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+        .main-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.5s ease;
+        }
 
-    /* QUADRO PRINCIPAL */
-    .image-frame {
-      width: 100%;
-      height: 340px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      margin-bottom: 20px;
-      background-color: #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-    }
+        .emotion-title {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: var(--accent-color, #ffd700);
+            text-shadow: 0 0 10px var(--accent-color, #ffd700);
+        }
 
-    .image-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.4s ease-in-out;
-    }
+        .emotion-subtitle {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            opacity: 0.85;
+        }
 
-    /* BOTÕES */
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-      margin-bottom: 20px;
-    }
+        .section-title {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 4px;
+        }
 
-    .button-row {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-    }
+        .concept-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
 
-    button {
-      flex: 1;
-      background: #0f172a;
-      color: #00f2fe;
-      border: 1px solid #00f2fe;
-      padding: 10px 6px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .neuro-list {
+            list-style-type: none;
+            padding-left: 5px;
+        }
 
-    button:hover {
-      background: #00f2fe;
-      color: #080d1a;
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
-      transform: translateY(-2px);
-    }
+        .neuro-list li {
+            padding: 3px 0;
+            font-size: 0.9rem;
+        }
 
-    /* LEGENDA EXPLICATIVA */
-    .status-panel {
-      width: 100%;
-      background: rgba(8, 13, 26, 0.8);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      text-align: center;
-      color: #e2e8f0;
-      min-height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-style: italic;
-    }
-  </style>
+        .neuro-list li::before {
+            content: "• ";
+            color: var(--accent-color, #ffd700);
+        }
+
+        .quote {
+            margin-top: 15px;
+            font-style: italic;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.95;
+            padding: 8px;
+            border-left: 2px solid var(--accent-color, #ffd700);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            width: 100%;
+            padding: 15px 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-emotion {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-emotion:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>PROJETO 5º ELEMENTO</h1>
-    <p class="sub">Sintetizador Biométrico de Lágrimas</p>
+    <header>
+        <h1>Sintetizador Biométrico e Poético da Alma</h1>
+        <small>Projeto 5º Elemento &infin;</small>
+    </header>
 
-    <div class="image-frame">
-      <img id="emotionImage" src="gratidao.jpg" alt="Expressão de Gratidão">
+    <div class="main-container" id="panel">
+        <h2 class="emotion-title" id="title">Gratidão</h2>
+        <p class="emotion-subtitle" id="subtitle">A beleza da vida</p>
+        
+        <div class="section-title">Conceito</div>
+        <p class="concept-text" id="concept">Gratidão é a emoção que transforma o simples em extraordinário. É o olhar que reconhece o que já existe, valoriza o presente e fortalece o futuro.</p>
+        
+        <div class="section-title">Associações Neurobiológicas</div>
+        <ul class="neuro-list" id="neuro">
+            <li>Serotonina</li>
+            <li>Dopamina</li>
+            <li>Ocitocina</li>
+        </ul>
+
+        <p class="quote" id="quote">"A gratidão abre o coração e faz a vida florescer."</p>
     </div>
 
-    <div class="controls">
-      <div class="button-row">
-        <button onclick="setEmotion('gratidao')">Gratidão</button>
-        <button onclick="setEmotion('dor')">Dor da Alma</button>
-        <button onclick="setEmotion('tristeza')">Tristeza</button>
-      </div>
-      <div class="button-row">
-        <button onclick="setEmotion('alegria')">Alegria</button>
-        <button onclick="setEmotion('paz')">Paz</button>
-        <button onclick="setEmotion('raiva')">Raiva</button>
-      </div>
-    </div>
+    <nav>
+        <button class="btn-emotion" onclick="setEmotion('gratidao')">Gratidão</button>
+        <button class="btn-emotion" onclick="setEmotion('alegria')">Alegria</button>
+        <button class="btn-emotion" onclick="setEmotion('alegria_lagrimas')">Lágrimas de Alegria</button>
+        <button class="btn-emotion" onclick="setEmotion('paz')">Paz</button>
+        <button class="btn-emotion" onclick="setEmotion('tristeza')">Tristeza</button>
+        <button class="btn-emotion" onclick="setEmotion('dor_da_alma')">Dor da Alma</button>
+        <button class="btn-emotion" onclick="setEmotion('raiva')">Raiva</button>
+        <button class="btn-emotion" onclick="setEmotion('lagrimas_raiva')">Lágrimas de Raiva</button>
+        <button class="btn-emotion" onclick="setEmotion('medo')">Medo</button>
+    </nav>
 
-    <div class="status-panel" id="statusPanel">
-      GRATIDÃO: O olhar foca a beleza do encontro. Alta carga de oxitocina, dopamina e reconhecimento da vida.
-    </div>
-  </div>
+    <footer>
+        <p>Sentir também é viver... &infin;</p>
+    </footer>
 
-  <script>
-    const emotionImage = document.getElementById('emotionImage');
-    const statusPanel = document.getElementById('statusPanel');
+    <script>
+        const emotions = {
+            gratidao: {
+                title: "Gratidão",
+                subtitle: "A beleza da vida",
+                concept: "Gratidão é a emoção que transforma o simples em extraordinário. É o olhar que reconhece o que já existe, valoriza o presente e fortalece o futuro.",
+                neuro: ["Serotonina", "Dopamina", "Ocitocina"],
+                quote: '"A gratidão abre o coração e faz a vida florescer."',
+                color: "#ffd700",
+                bg: "assets/gratidao.png"
+            },
+            alegria: {
+                title: "Alegria",
+                subtitle: "Energia que renova",
+                concept: "Alegria é a energia que ilumina por dentro. É o sorriso que nasce da alma, a leveza que faz o coração pulsar mais forte e o corpo se mover com mais vida.",
+                neuro: ["Dopamina", "Serotonina", "Endorfina"],
+                quote: '"A alegria é o combustível da alma."',
+                color: "#ffae00",
+                bg: "assets/alegria.png"
+            },
+            alegria_lagrimas: {
+                title: "Lágrimas de Alegria",
+                subtitle: "Também é força, também é vida",
+                concept: "A lágrima de alegria é a expressão mais pura de que a vida faz sentido. Ela nasce do coração em paz, da superação de desafios e da presença do que nos faz bem.",
+                neuro: ["Dopamina", "Serotonina", "Endorfina", "Ocitocina"],
+                quote: '"É a alma sorrindo por dentro."',
+                color: "#ffcb05",
+                bg: "assets/alegria_lagrimas.png"
+            },
+            paz: {
+                title: "Lágrimas de Paz",
+                subtitle: "Equilíbrio interior",
+                concept: "A lágrima de paz é a expressão de um coração em equilíbrio. Ela nasce quando a mente se acalma, o corpo relaxa e a alma encontra novamente o seu centro.",
+                neuro: ["Serotonina", "Ocitocina", "Endorfina", "GABA"],
+                quote: '"A paz não é a ausência de desafios, mas a certeza de que você consegue enfrentá-los com serenidade."',
+                color: "#00e5ff",
+                bg: "assets/paz.png"
+            },
+            tristeza: {
+                title: "Tristeza",
+                subtitle: "O que também é parte do processo",
+                concept: "A tristeza é um sentimento profundo que nos conecta com o que sentimos de verdade. Ela não é fraqueza, é um sinal de que algo importa. É o espaço onde a alma se reorganiza.",
+                neuro: ["Serotonina", "Noradrenalina", "Dopamina"],
+                quote: '"A tristeza também é uma forma de amor. É o coração que sente."',
+                color: "#4a90e2",
+                bg: "assets/tristeza.png"
+            },
+            dor_da_alma: {
+                title: "Dor da Alma",
+                subtitle: "Também é sentimento e também é força",
+                concept: "A dor da alma é um sentimento profundo que nasce das experiências que marcaram, mas que também nos ensinam. É prova de que sentimos, vivemos e temos um coração capaz de recomeçar.",
+                neuro: ["Serotonina (equilíbrio)", "Endorfina (alívio)", "GABA (acalmar)"],
+                quote: '"A dor também é um tipo de amor. É a alma sentindo que ainda se importa."',
+                color: "#8a2be2",
+                bg: "assets/dor_da_alma.png"
+            },
+            raiva: {
+                title: "Raiva",
+                subtitle: "Força que transforma / Energia que move",
+                concept: "A raiva é o impulso que rompe o que nos prende. É energia, é limite, é sobrevivência. Não é apenas destruição, mas também um chamado para a mudança.",
+                neuro: ["Adrenalina", "Noradrenalina", "Dopamina"],
+                quote: '"A raiva também é força. Quando entendida, se transforma em direção."',
+                color: "#ff3300",
+                bg: "assets/raiva.png"
+            },
+            lagrimas_raiva: {
+                title: "Lágrimas de Raiva",
+                subtitle: "Também é força. Também é vida.",
+                concept: "As lágrimas de raiva mostram que sentir também é resistir. A raiva não é apenas destruição, ela é proteção, limite e força. É a alma que chora porque se importa e não aceita o que machuca.",
+                neuro: ["Adrenalina", "Noradrenalina", "Cortisol", "Dopamina (em queda)"],
+                quote: '"A raiva também é amor. É a alma que diz: chega."',
+                color: "#cc0000",
+                bg: "assets/lagrimas_raiva.png"
+            },
+            medo: {
+                title: "Medo",
+                subtitle: "Também é uma emoção que nos protege",
+                concept: "O medo é uma emoção de sobrevivência. Ele nos alerta para os perigos, nos prepara para agir e nos protege. É o instinto em forma de sentimento.",
+                neuro: ["Adrenalina", "Noradrenalina", "Cortisol"],
+                quote: '"O medo não é fraqueza, é o corpo tentando te manter vivo."',
+                color: "#9933ff",
+                bg: "assets/medo.png"
+            }
+        };
 
-    const emotions = {
-      gratidao: {
-        img: 'gratidao.jpg',
-        msg: 'GRATIDÃO: O olhar foca a beleza do encontro. Alta carga de oxitocina, dopamina e reconhecimento da vida.'
-      },
-      dor: {
-        img: 'dor_na_alma.jpg',
-        msg: 'DOR DA ALMA & FÍSICA: O olhar desvia para o horizonte buscando o invisível. Presença de leucina-encefalina (analgésico natural).'
-      },
-      tristeza: {
-        img: 'tristeza.jpg',
-        msg: 'TRISTEZA: Processo de alívio e descompressão do organismo. Gotas densas enriquecidas com cortisol.'
-      },
-      alegria: {
-        img: 'alegria.jpg',
-        msg: 'ALEGRIA: Transbordamento celular e celebração em abundância de endorfina.'
-      },
-      paz: {
-        img: 'paz.jpg',
-        msg: 'PAZ: Estado de quietude, serenidade e restauração homeostática do sistema.'
-      },
-      raiva: {
-        img: 'raiva.jpg',
-        msg: 'RAIVA: Descarga adrenérgica sob alta pressão interna, com miose (contração) e tensão na expressão.'
-      }
-    };
+        function setEmotion(key) {
+            const data = emotions[key];
+            if (!data) return;
 
-    function setEmotion(type) {
-      const config = emotions[type];
-      if (!config) return;
+            document.getElementById('title').innerText = data.title;
+            document.getElementById('subtitle').innerText = data.subtitle;
+            document.getElementById('concept').innerText = data.concept;
+            document.getElementById('quote').innerText = data.quote;
+            
+            const neuroList = document.getElementById('neuro');
+            neuroList.innerHTML = '';
+            data.neuro.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                neuroList.appendChild(li);
+            });
 
-      emotionImage.style.opacity = '0.2';
-      setTimeout(() => {
-        emotionImage.src = config.img;
-        emotionImage.style.opacity = '1';
-      }, 150);
+            document.documentElement.style.setProperty('--accent-color', data.color);
+            document.body.style.backgroundImage = `url('${data.bg}')`;
+        }
 
-      statusPanel.textContent = config.msg;
-    }
-  </script>
+        setEmotion('gratidao');
+    </script>
 </body>
 </html>
