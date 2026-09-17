@@ -1,44 +1,65 @@
-# 💧 Sintetizador Biométrico e Poético de Lágrimas
-> *Parte integrante do **Projeto 5º Elemento***
+<div align="center">
 
-<p align="center">
-  <a href="https://donicatia1206.github.io/lagrimas_emocionais/">
-    <img src="https://img.shields.io/badge/TESTAR_SIMULADOR-GitHub_Pages-00f2fe?style=for-the-badge&logo=githubpages&logoColor=black" alt="Acessar Simulador">
-  </a>
-</p>
+# 💧 Sintetizador Biométrico e Poético da Alma
+*Parte integrante do **Projeto 5º Elemento** ∞*
+
+[![GitHub Pages](https://img.shields.io/badge/TESTAR%20SIMULADOR-GITHUB%20PAGES-00FFFF?style=for-the-badge&logo=github)](https://donicatia1206.github.io/lagrimas_emocionais/)
+
+<br>
+
+<!-- Banner de Capa Principal -->
+<img src="assets/gratidao.png" alt="Lágrima de Gratidão - Projeto 5º Elemento" width="100%" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+
+<br>
+
+### *"A gratidão abre o coração e faz a vida florescer..."*
+
+</div>
 
 ---
 
 ## 🎨 O Conceito Surrealista e Poético
 
-O **Sintetizador Biométrico de Lágrimas** é um experimento de código autoral que traduz a química, a física e a sensibilidade do sentir humano em interface digital. 
+O **Sintetizador Biométrico e Poético da Alma** é um experimento de código autoral que traduz a química, a física e a sensibilidade do sentir humano em uma interface digital imersiva.
 
-Imaginativamente construído sobre a atmosfera de um pôr do sol, o sistema simula a presença de dois olhos expressivos de **íris azul-esverdeada** observando o horizonte onírico — onde um **beija-flor multicor** se aproxima de um **girassol reluzente**, e cada gota vertida desce em direção ao oceano para gerar ondulações (*ripples*) de transformação.
-
----
-
-## 🧪 Biomecânica e Física das 6 Emoções
-
-A cor base da íris permanece constante e autêntica, enquanto o sistema reage dinamicamente alterando a esclerótica (parte branca), a dilatação da pupila, o ritmo da gota e a postura do olhar:
-
-* **✨ Gratidão:** O olhar foca o centro da cena e a beleza do encontro. Alta carga de oxitocina e dopamina com lágrimas de brilho dourado.
-* **🌌 Dor da Alma & Física:** O olhar faz um **desvio suave para o horizonte**, buscando no infinito aquilo que não está lá. Liberação de leucina-encefalina (analgésico natural) e dilatação pupilar (midríase).
-* **🌊 Tristeza:** Processo de alívio e descompressão do organismo. Gotas densas enriquecidas com cortisol.
-* **☀️ Alegria:** Transbordamento celular e celebração em abundância de endorfina.
-* **🕊️ Paz:** Estado de quietude, serenidade e restauração homeostática do sistema.
-* **🔥 Raiva:** Descarga adrenérgica sob alta pressão interna, com miose (contração) da pupila e tensão na expressão ocular.
+Imaginativamente construído sobre a atmosfera de um pôr do sol, o sistema simula a transição de estados emocionais profundos — unindo **artes visuais surrealistas em glassmorphism**, mapas neurobiológicos e expressões poéticas.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🖼️ Galeria do Portal de Emoções
 
-* **HTML5 Semantic & UTF-8 Native Encoding**
-* **CSS3 Advanced Styling:** Glassmorphism, animações puras em `@keyframes`, gradientes radiais dinâmicos e filtros de luz.
-* **JavaScript ES6:** Manipulação biomecânica de estados emocionais e parâmetros do vetor ocular.
+<div align="center">
+
+| 🌅 Dashboard Principal | 🟡 Gratidão |
+| :---: | :---: |
+| <img src="assets/dashboard.png" width="380"> | <img src="assets/gratidao.png" width="380"> |
+
+| 🔵 Tristeza | 🔴 Raiva |
+| :---: | :---: |
+| <img src="assets/tristeza.png" width="380"> | <img src="assets/raiva.png" width="380"> |
+
+| 🩵 Paz | 🌅 Nascer do Sol |
+| :---: | :---: |
+| <img src="assets/paz.png" width="380"> | <img src="assets/nascer_do_sol.png" width="380"> |
+
+</div>
 
 ---
 
-## 🔗 Experiência Online
+## 🧬 Biomecânica e Neurobiologia dos Sentimentos
 
-Experimente a aplicação em tempo real diretamente pelo seu navegador:
-👉 **[Acessar Sintetizador Biométrico de Lágrimas](https://donicatia1206.github.io/lagrimas_emocionais/)**
+Cada tela sintetiza a relação química das emoções no corpo humano:
+
+* **Gratidão:** Ativação de *Oxitocina*, *Serotonina* e *Dopamina*.
+* **Tristeza:** Expressão de acolhimento e liberação emocional através de lágrima cristalina.
+* **Raiva:** Elevação de *Adrenalina*, *Noradrenalina* e *Cortisol*.
+* **Nascer do Sol:** Renovação celular com carga de *Endorfina* e esperança.
+
+---
+
+<div align="center">
+
+**Desenvolvido por Donizete (donigemini)**  
+*Porque sentir também é viver... ∞*
+
+</div>
