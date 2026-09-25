@@ -22,6 +22,38 @@
             align-items: center;
         }
 
+        /* Menu Superior de Navegação do Ecossistema */
+        .nav-ecossistema {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            background-color: #111111;
+            padding: 12px 15px;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+        }
+
+        .nav-ecossistema a {
+            color: #00bcff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 8px 16px;
+            border: 1px solid #00bcff;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-ecossistema a:hover, .nav-ecossistema a.ativo {
+            background-color: #00bcff;
+            color: #111111;
+            box-shadow: 0 0 10px rgba(0, 188, 255, 0.5);
+        }
+
         header {
             width: 100%;
             padding: 12px;
@@ -55,7 +87,8 @@
             transition: opacity 0.3s ease;
         }
 
-        nav {
+        /* Menu Inferior das Emoções */
+        nav.nav-emocoes {
             width: 100%;
             padding: 12px 8px;
             background: rgba(0, 0, 0, 0.9);
@@ -91,6 +124,13 @@
 </head>
 <body>
 
+    <!-- Menu Superior de Navegação do Ecossistema -->
+    <nav class="nav-ecossistema">
+        <a href="https://donicatia1206.github.io/donicatia1206/">🧮 Balanço Energético</a>
+        <a href="https://donicatia1206.github.io/CAPTAIN_PLANET_PROJECT/">🤖 Sintetizador IA</a>
+        <a href="https://donicatia1206.github.io/lagrimas_emocionais/" class="ativo">🎨 Portais da Alma</a>
+    </nav>
+
     <header>
         <h1>Sintetizador Biométrico e Poético da Alma</h1>
     </header>
@@ -99,7 +139,8 @@
         <img id="display-image" src="assets/dashboard.png" alt="Sintetizador Biométrico" onerror="handleError(this)">
     </div>
 
-    <nav>
+    <!-- Menu Inferior dos Botões de Emoção -->
+    <nav class="nav-emocoes">
         <button class="btn-emotion btn-home" onclick="setEmotion('dashboard')">🏠 Início</button>
         <button class="btn-emotion" onclick="setEmotion('gratidao')">Gratidão</button>
         <button class="btn-emotion" onclick="setEmotion('alegria')">Alegria</button>
@@ -157,12 +198,6 @@
                 img.src = sources[currentAttempt];
             }
         }
-        <!-- Menu Superior de Navegação -->
-<nav class="nav-ecossistema">
-    <a href="https://donicatia1206.github.io/calculadora/">🧮 Balanço Energético</a>
-    <a href="https://donicatia1206.github.io/CAPTAIN_PLANET_PROJECT/" class="ativo">🤖 Sintetizador IA</a>
-    <a href="https://donicatia1206.github.io/lagrimas_emocionais/">🎨 Portais da Alma</a>
-</nav>
     </script>
 </body>
 </html>
